@@ -45,8 +45,8 @@ class DigitCNN(torch.nn.Module):
         out = self.fc(out)
         return out
 
-cnn = DigitCNN()
-cnn = cnn.cuda()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+cnn = DigitCNN().to(device)
 
 # loss:损失函数
 
@@ -59,8 +59,8 @@ optimizer = torch.optim.Adam(cnn.parameters(),lr=0.01)
 # training:训练
 for epoch in range(10):
     for i, (images, labels) in enumerate(train_loader):
-        images = images.cuda()
-        labels = labels.cuda()
+        images = images.to(device)
+        labels = labels.to(device)
 
         # 前向传播
         outputs = cnn(images)
