@@ -1,0 +1,13 @@
+# 忽略数据集和模型
+mnist/
+model/
+
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略 IDE 配置
+.vscode/
+.idea/
